@@ -53,8 +53,13 @@ else
 fi
 alias rr="rm -r"
 
+if command -v run0 >/dev/null 2>&1; then
+	alias sudo=run0
+	alias pkexec=run0
+fi
+
 # XDG - Base Directory Specification
-export XDG_CONFIG_HOME="$HOME/.dotfiles"
+export XDG_CONFIG_HOME="$HOME/.local/dotfiles"
 export XDG_BIN_HOME="$HOME/.local/bin"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.local/cache"

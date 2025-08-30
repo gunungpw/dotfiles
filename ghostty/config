@@ -5,5 +5,5 @@
 # on Ghostty's website, at https://ghostty.org/docs/config.
 
 command = nu
-font-size = 8
+font-size = 10
 theme = Builtin Pastel Dark

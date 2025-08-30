@@ -62,6 +62,8 @@ alias vl = overlay use .venv/bin/activate.nu # linux activate virtual environmen
 alias vv = uv run
 alias rr = rm --recursive
 alias de = distrobox enter # enter distrobox container
+alias sudo = run0
+alias pkexec = run0
 
 source zoxide.nu
 source atuin.nu
