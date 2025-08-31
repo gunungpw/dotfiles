@@ -64,6 +64,7 @@ alias rr = rm --recursive
 alias de = distrobox enter # enter distrobox container
 alias sudo = run0
 alias pkexec = run0
+alias ru = run0
 
 source zoxide.nu
 source atuin.nu

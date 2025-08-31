@@ -56,6 +56,7 @@ alias rr="rm -r"
 if command -v run0 >/dev/null 2>&1; then
 	alias sudo=run0
 	alias pkexec=run0
+	alias ru=run0
 fi
 
 # XDG - Base Directory Specification
@@ -101,10 +102,11 @@ add_to_path "$CARGO_BIN"
 add_to_path "$ZIG_BIN"
 
 if command -v zoxide >/dev/null 2>&1; then
-    eval "$(zoxide init bash)"
+	eval "$(zoxide init bash)"
 fi
-
-source "$XDG_CONFIG_HOME/bash/atuin.bash"
+if command -v atuin >/dev/null 2>&1; then
+	eval "$(atuin init bash)"
+fi
 
 # bun
 export BUN_INSTALL="$HOME/.local/share/reflex/bun"

@@ -1,5 +1,5 @@
 [[binaries]]
-name = "restic"
-repo = "restic/restic"
-exe = "restic"
-version_arg = "version"
+name = "btm"
+repo = "ClementTsang/bottom"
+exe = "btm"
+version_arg = "--version"
