@@ -16,49 +16,6 @@ shopt -s checkwinsize
 # Prevent accidental overwrites with IO redirection
 set -o noclobber
 
-## Set the prompt to display the current git branch
-## and use pretty colors
-# Function to generate custom bash prompt
-generate_prompt() {
-    # Colors
-    local BOLD='\[\e[1m\]'
-    local BLUE='\[\e[34m\]'
-    local RED='\[\e[1;31m\]'
-    local RESET='\[\e[0m\]'
-
-    local user_host
-    if [[ -n "$CONTAINER_ID" ]]; then
-        user_host="box:$CONTAINER_ID"
-    else
-        user_host="$HOSTNAME"
-    fi
-    local user_name=$(whoami)
-    local working_dir=" \w"
-
-    PS1="${BOLD}${user_name}@${user_host}${RESET}:${working_dir} ❭ "
-}
-
-# Set the prompt command
-export PROMPT_COMMAND='generate_prompt'
-
-# Alias
-alias ..="cd .."
-if command -v eza >/dev/null 2>&1; then
-    alias ls="eza"
-    alias la="eza -la"
-    alias l="eza -l"
-else
-    alias la="ls -la"
-    alias l="ls -l"
-fi
-alias rr="rm -r"
-
-if command -v run0 >/dev/null 2>&1; then
-	alias sudo=run0
-	alias pkexec=run0
-	alias ru=run0
-fi
-
 # XDG - Base Directory Specification
 export XDG_CONFIG_HOME="$HOME/.local/dotfiles"
 export XDG_BIN_HOME="$HOME/.local/bin"
@@ -101,11 +58,58 @@ add_to_path "$NIMBLE_BIN"
 add_to_path "$CARGO_BIN"
 add_to_path "$ZIG_BIN"
 
+## Set the prompt to display the current git branch
+## and use pretty colors
+# Function to generate custom bash prompt
+generate_prompt() {
+    # Colors
+    local BOLD='\[\e[1m\]'
+    local BLUE='\[\e[34m\]'
+    local RED='\[\e[1;31m\]'
+    local RESET='\[\e[0m\]'
+
+    local user_host
+    if [[ -n "$CONTAINER_ID" ]]; then
+        user_host="box:$CONTAINER_ID"
+    else
+        user_host="$HOSTNAME"
+    fi
+    local user_name=$(whoami)
+    local working_dir=" \w"
+
+    PS1="${BOLD}${user_name}@${user_host}${RESET}:${working_dir} > "
+}
+
+# Set the prompt command
+export PROMPT_COMMAND='generate_prompt'
+
+# Alias
+alias ..="cd .."
+if command -v eza >/dev/null 2>&1; then
+    alias ls="eza"
+    alias la="eza -la"
+    alias l="eza -l"
+else
+    alias la="ls -la"
+    alias l="ls -l"
+fi
+alias rr="rm -r"
+
+if command -v run0 >/dev/null 2>&1; then
+	alias sudo=run0
+	alias pkexec=run0
+	alias ru=run0
+fi
+
 if command -v zoxide >/dev/null 2>&1; then
 	eval "$(zoxide init bash)"
 fi
 if command -v atuin >/dev/null 2>&1; then
 	eval "$(atuin init bash)"
+fi
+
+if [[ $TERM == "rio" ]]; then
+    exec nu
 fi
 
 # bun

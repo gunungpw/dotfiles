@@ -1,5 +1,5 @@
 padding-x = 10
-padding-y = [10, 10]
+padding-y = [10, 0]
 confirm-before-quit = false
 
 [window]
@@ -8,17 +8,12 @@ height = 400
 mode = "maximized"
 opacity = 0.95
 blur = false
-decorations = "enabled"
-colorspace = "display-p3"
 
 [navigation]
 mode = "TopTab"
 clickable = true
-hide-if-single = false
-use-current-path = false
-color-automation = []
 
 [shell]
-program = "nu"
+program = "bash"
 args = []
 
