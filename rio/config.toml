@@ -3,17 +3,4 @@ padding-y = [10, 0]
 confirm-before-quit = false
 
 [window]
-width = 600
-height = 400
 mode = "maximized"
-opacity = 0.95
-blur = false
-
-[navigation]
-mode = "TopTab"
-clickable = true
-
-[shell]
-program = "bash"
-args = []
-

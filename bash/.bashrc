@@ -58,8 +58,6 @@ add_to_path "$NIMBLE_BIN"
 add_to_path "$CARGO_BIN"
 add_to_path "$ZIG_BIN"
 
-## Set the prompt to display the current git branch
-## and use pretty colors
 # Function to generate custom bash prompt
 generate_prompt() {
     # Colors
@@ -106,10 +104,6 @@ if command -v zoxide >/dev/null 2>&1; then
 fi
 if command -v atuin >/dev/null 2>&1; then
 	eval "$(atuin init bash)"
-fi
-
-if [[ $TERM == "rio" ]]; then
-    exec nu
 fi
 
 # bun
