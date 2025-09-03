@@ -20,10 +20,12 @@ $env.XDG_BIN_HOME = $nu.home-path | path join .local bin
 $env.XDG_DATA_HOME = $nu.home-path | path join .local share
 $env.XDG_CACHE_HOME = $nu.home-path | path join .local cache
 $env.XDG_STATE_HOME = $nu.home-path | path join .local state
+$env.XDG_MENU_PREFIX = "plasma-"
 
 # Configuration Environment Variable
 $env.GIT_CONFIG_GLOBAL = $env.XDG_CONFIG_HOME | path join git .gitconfig
 $env.EDITOR = "micro"
+$env.BROWSER = "brave"
 
 # Cache Environment Variable
 $env.UV_PYTHON_INSTALL_DIR = $nu.home-path | path join .local py
