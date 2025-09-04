@@ -47,13 +47,19 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
     // Uncomment to turn off all animations.
-    // off
+    off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
 }
 
 prefer-no-csd
+
+window-rule {
+	match app-id="xdg-desktop-portal-gtk"
+    open-maximized false
+    open-floating true
+}
 
 window-rule {
     open-maximized true
@@ -82,7 +88,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+E hotkey-overlay-title="Open a File Manager" { spawn "thunar"; }
     Mod+B hotkey-overlay-title="Open a Browser" { spawn "brave"; }
-    Mod+T hotkey-overlay-title="Open a Terminal" { spawn "rio"; }
+    Mod+T hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,

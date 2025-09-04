@@ -93,10 +93,8 @@ else
 fi
 alias rr="rm -r"
 
-if command -v run0 >/dev/null 2>&1; then
-	alias sudo=run0
-	alias pkexec=run0
-	alias ru=run0
+if command -v sudo-rs >/dev/null 2>&1; then
+	alias sudo=sudo-rs
 fi
 
 if command -v zoxide >/dev/null 2>&1; then
