@@ -1,19 +1,11 @@
+spawn-at-startup "systemctl" "--user" "start" "hyprpolkitagent"
 spawn-at-startup "qs" "-c" "dms"
 spawn-at-startup "nu" "-c" "wl-paste --watch cliphist store &"
 
 input {
     keyboard {
         xkb {
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
-            // For example:
-            // layout "us,ru"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
+            layout "us" 
         }
         numlock
     }
@@ -46,11 +38,7 @@ layout {
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // Uncomment to turn off all animations.
     off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
 }
 
 prefer-no-csd
@@ -78,8 +66,8 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "-c" "dms" "ipc" "call" "audio" "decrement" "2"; }
     XF86AudioMute allow-when-locked=true { spawn "qs" "-c" "dms" "ipc" "call" "audio" "mute"; }
     XF86AudioMicMute allow-when-locked=true { spawn "qs" "-c" "dms" "ipc" "call" "audio" "micmute"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "-c" "dms" "ipc" "call" "brightness" "increment" "2" ""; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "-c" "dms" "ipc" "call" "brightness" "decrement" "2" ""; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "-c" "dms" "ipc" "call" "brightness" "increment" "3" ""; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "-c" "dms" "ipc" "call" "brightness" "decrement" "3" ""; }
    
     // Night mode toggle
     Mod+Shift+N allow-when-locked=true { spawn "qs" "-c" "dms" "ipc" "call" "night" "toggle"; }
@@ -90,11 +78,7 @@ binds {
     Mod+B hotkey-overlay-title="Open a Browser" { spawn "brave"; }
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
 
-    // Open/close the Overview: a zoomed-out view of workspaces and windows.
-    // You can also move the mouse into the top-left hot corner,
-    // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
-
     Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
@@ -114,13 +98,6 @@ binds {
     Mod+Ctrl+J     { move-window-down; }
     Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
-
-    // Alternative commands that move across workspaces when reaching
-    // the first or last window in a column.
-    // Mod+J     { focus-window-or-workspace-down; }
-    // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
@@ -159,12 +136,6 @@ binds {
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    // You can bind mouse wheel scroll ticks using the following syntax.
-    // These binds will change direction based on the natural-scroll setting.
-    //
-    // To avoid scrolling through workspaces really fast, you can use
-    // the cooldown-ms property. The bind will be rate-limited to this value.
-    // You can set a cooldown on any bind, but it's most useful for the wheel.
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
