@@ -18,9 +18,8 @@ input {
     warp-mouse-to-focus
 }
 
-
 layout {
-    gaps 2
+    gaps 0
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -29,6 +28,7 @@ layout {
     }
 
     focus-ring {
+    	off
         width 2
         active-color "#7fc8ff"
         inactive-color "#505050"
@@ -41,7 +41,9 @@ animations {
     off
 }
 
-prefer-no-csd
+overview {
+    zoom 0.30
+}
 
 window-rule {
 	match app-id="xdg-desktop-portal-gtk"
@@ -51,6 +53,13 @@ window-rule {
 
 window-rule {
     open-maximized true
+}
+
+window-rule {
+    match app-id="python3"
+    open-maximized false
+    open-floating true
+    tiled-state false
 }
 
 binds {
@@ -75,10 +84,10 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+E hotkey-overlay-title="Open a File Manager" { spawn "thunar"; }
-    Mod+B hotkey-overlay-title="Open a Browser" { spawn "brave"; }
+    Mod+B hotkey-overlay-title="Open a Browser" { spawn "vivaldi"; }
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
 
-    Mod+O repeat=false { toggle-overview; }
+    Mod+A repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }

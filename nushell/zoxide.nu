@@ -53,7 +53,7 @@ def --env --wrapped __zoxide_zi [...rest:string] {
 # Commands for zoxide. Disable these using --no-cmd.
 #
 
-alias z = __zoxide_z
+alias cd = __zoxide_z
 alias zz = __zoxide_zi
 
 # =============================================================================
