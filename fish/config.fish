@@ -3,6 +3,9 @@ if status is-interactive
     eval "$(devbox global shellenv)"
 end
 
+# Disable fish greeting
+set -g fish_greeting
+
 # XDG - Base Directory Specification
 set -gx XDG_CONFIG_HOME "$HOME/.local/dotfiles"
 set -gx XDG_BIN_HOME "$HOME/.local/bin"
@@ -24,11 +27,12 @@ set -gx BUN_INSTALL "$HOME/.local"
 set -gx BUN_INSTALL_DIR_CACHE "$HOME/.local/cache"
 
 # History Environment Variable
-set -gx NODE_REPL_HISTORY "$XDG_DATA_HOME/history_node"
-set -gx LESSHISTFILE "$XDG_DATA_HOME/history_less"
-set -gx PYTHON_HISTORY "$XDG_DATA_HOME/history_python"
-set -gx _ZO_DATA_DIR "$XDG_DATA_HOME/zoxide"
-set -gx HISTFILE "$XDG_DATA_HOME/bash_history"
+set -gx HISTORY_DIR "$HOME/.local/history"
+set -gx NODE_REPL_HISTORY "$HISTORY_DIR/history_node"
+set -gx LESSHISTFILE "$HISTORY_DIR/history_less"
+set -gx PYTHON_HISTORY "$HISTORY_DIR/history_python"
+set -gx _ZO_DATA_DIR "$HISTORY_DIR/zoxide"
+set -gx HISTFILE "$HISTORY_DIR/bash_history"
 
 # Binary Directory Variable
 set -gx NIMBLE_BIN "$HOME/.nimble/bin"
@@ -73,6 +77,8 @@ else
     alias l "ls -l"
 end
 alias rr "rm -r"
+alias cd "z"
+
 
 if type -q sudo-rs
     alias sudo sudo-rs
