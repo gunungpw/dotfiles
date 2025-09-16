@@ -25,7 +25,7 @@ $env.XDG_MENU_PREFIX = "plasma-"
 # Configuration Environment Variable
 $env.GIT_CONFIG_GLOBAL = $env.XDG_CONFIG_HOME | path join git .gitconfig
 $env.EDITOR = "micro"
-$env.BROWSER = "vivaldi"
+$env.BROWSER = "brave"
 
 # Cache Environment Variable
 $env.UV_PYTHON_INSTALL_DIR = $nu.home-path | path join .local py
@@ -64,7 +64,6 @@ alias vl = overlay use .venv/bin/activate.nu # linux activate virtual environmen
 alias vv = uv run
 alias rr = rm --recursive
 alias de = distrobox enter # enter distrobox container
-alias sudo = sudo-rs
 
 source zoxide.nu
 source atuin.nu
