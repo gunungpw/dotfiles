@@ -1,6 +1,5 @@
 if status is-interactive
     atuin init fish | source
-    eval "$(devbox global shellenv)"
 end
 
 # Disable fish greeting
@@ -16,7 +15,7 @@ set -gx XDG_STATE_HOME "$HOME/.local/state"
 # Configuration Environment Variable
 set -gx GIT_CONFIG_GLOBAL "$XDG_CONFIG_HOME/git/.gitconfig"
 set -gx EDITOR "micro"
-set -gx BROWSER "vivaldi"
+set -gx BROWSER "brave"
 
 # Cache Environment Variable
 set -gx UV_PYTHON_INSTALL_DIR "$HOME/.local/py"
@@ -46,26 +45,6 @@ fish_add_path "$NIMBLE_BIN"
 fish_add_path "$CARGO_BIN"
 fish_add_path "$ZIG_BIN"
 
-# # Function to generate custom fish prompt
-# function fish_prompt
-#     # Colors
-#     set -l BOLD (set_color -o)
-#     set -l BLUE (set_color blue)
-#     set -l RED (set_color -o red)
-#     set -l RESET (set_color normal)
-# 
-#     set -l user_host
-#     if set -q CONTAINER_ID
-#         set user_host "box:$CONTAINER_ID"
-#     else
-#         set user_host "$hostname"
-#     end
-#     set -l user_name (whoami)
-#     set -l working_dir " "(pwd)
-# 
-#     echo -n "$BOLD$user_name@$user_host$RESET:$working_dir > "
-# end
-
 # Aliases
 alias .. "cd .."
 if type -q eza
@@ -79,7 +58,6 @@ end
 alias rr "rm -r"
 alias cd "z"
 
-
 if type -q sudo-rs
     alias sudo sudo-rs
 end
@@ -91,8 +69,3 @@ end
 # bun
 set -gx BUN_INSTALL "$HOME/.local/share/reflex/bun"
 set -gx fish_user_paths "$BUN_INSTALL/bin" $fish_user_paths
-# >>> xmake >>>
-if test -f "/home/reanom/.xmake/profile"
-    source "/home/reanom/.xmake/profile"
-end
-# <<< xmake <<<
