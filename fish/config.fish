@@ -1,5 +1,4 @@
 if status is-interactive
-    atuin init fish | source
 end
 
 # Disable fish greeting
@@ -16,6 +15,7 @@ set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx GIT_CONFIG_GLOBAL "$XDG_CONFIG_HOME/git/.gitconfig"
 set -gx EDITOR "micro"
 set -gx BROWSER "brave"
+set -gx TERM "kitty"
 
 # Cache Environment Variable
 set -gx UV_PYTHON_INSTALL_DIR "$HOME/.local/py"
@@ -56,15 +56,13 @@ else
     alias l "ls -l"
 end
 alias rr "rm -r"
-alias cd "z"
 
 if type -q sudo-rs
     alias sudo sudo-rs
 end
 
-if type -q zoxide
-    zoxide init fish | source
-end
+source "$XDG_CONFIG_HOME/fish/atuin.fish"
+source "$XDG_CONFIG_HOME/fish/zoxide.fish"
 
 # bun
 set -gx BUN_INSTALL "$HOME/.local/share/reflex/bun"
