@@ -26,6 +26,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # Configuration Environment Variable
 export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/.gitconfig"
 export EDITOR="micro"
+export BROWSER="brave"
 
 # Cache Environment Variable
 export UV_PYTHON_INSTALL_DIR="$HOME/.local/py"
