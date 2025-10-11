@@ -61,11 +61,12 @@ add_to_path "$ZIG_BIN"
 
 # Function to generate custom bash prompt
 generate_prompt() {
-    # Colors
-    local BOLD='\[\e[1m\]'
-    local BLUE='\[\e[34m\]'
-    local RED='\[\e[1;31m\]'
-    local RESET='\[\e[0m\]'
+    # Use tput for portable color and style codes
+    local BOLD=$(tput bold 2>/dev/null || echo -e "\033[1m")
+    local BLUE=$(tput setaf 4 2>/dev/null || echo -e "\033[34m")
+    local RED=$(tput setaf 1 2>/dev/null || echo -e "\033[1;31m")
+    local GREEN=$(tput setaf 2 2>/dev/null || echo -e "\033[32m")
+    local RESET=$(tput sgr0 2>/dev/null || echo -e "\033[0m")
 
     local user_host
     if [[ -n "$CONTAINER_ID" ]]; then
@@ -74,9 +75,10 @@ generate_prompt() {
         user_host="$HOSTNAME"
     fi
     local user_name=$(whoami)
-    local working_dir=" \w"
+    local working_dir="\w"
 
-    PS1="${BOLD}${user_name}@${user_host}${RESET}:${working_dir} > "
+    # Properly escape non-printing characters for PS1
+    PS1="\[${BOLD}\]\[${BLUE}\]${user_name}\[${RESET}\]@${user_host}:\[${GREEN}\]${working_dir}\[${RESET}\] > "
 }
 
 # Set the prompt command
@@ -95,14 +97,14 @@ fi
 alias rr="rm -r"
 
 if command -v sudo-rs >/dev/null 2>&1; then
-	alias sudo=sudo-rs
+    alias sudo=sudo-rs
 fi
 
 if command -v zoxide >/dev/null 2>&1; then
-	eval "$(zoxide init bash)"
+    eval "$(zoxide init bash)"
 fi
 if command -v atuin >/dev/null 2>&1; then
-	eval "$(atuin init bash)"
+    eval "$(atuin init bash)"
 fi
 
 # bun
