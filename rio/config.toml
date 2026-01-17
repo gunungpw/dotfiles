@@ -1,6 +1,0 @@
-padding-x = 10
-padding-y = [10, 0]
-confirm-before-quit = false
-
-[window]
-mode = "maximized"

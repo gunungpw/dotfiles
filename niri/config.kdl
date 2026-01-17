@@ -253,6 +253,18 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
+window-rule {
+    match app-id="xdg-desktop-portal-gtk"
+    open-floating true
+    default-column-width { proportion 0.75; }
+    default-window-height { fixed 750; }
+}
+
+window-rule {
+    match app-id="kitty"
+    default-column-width { proportion 1.0; }
+}
+
 include "dms/binds.kdl"
 include "dms/alttab.kdl"
 include "dms/layout.kdl"
