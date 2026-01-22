@@ -265,6 +265,12 @@ window-rule {
     default-column-width { proportion 1.0; }
 }
 
+window-rule {
+    match title="File Operation Progress"
+    match app-id="Thunar"
+    open-floating true
+}
+
 include "dms/binds.kdl"
 include "dms/alttab.kdl"
 include "dms/layout.kdl"
