@@ -15,11 +15,11 @@ $env.PROMPT_COMMAND = {|| $"(ansi yellow_bold)(get_username)@(get_hostname)(ansi
 $env.PROMPT_COMMAND_RIGHT = {||}
 
 # XDG - Base Directory Specification
-$env.XDG_CONFIG_HOME = $nu.home-path | path join .local dotfiles
-$env.XDG_BIN_HOME = $nu.home-path | path join .local bin
-$env.XDG_DATA_HOME = $nu.home-path | path join .local share
-$env.XDG_CACHE_HOME = $nu.home-path | path join .local cache
-$env.XDG_STATE_HOME = $nu.home-path | path join .local state
+$env.XDG_CONFIG_HOME = $nu.home-dir | path join .local dotfiles
+$env.XDG_BIN_HOME = $nu.home-dir | path join .local bin
+$env.XDG_DATA_HOME = $nu.home-dir | path join .local share
+$env.XDG_CACHE_HOME = $nu.home-dir | path join .local cache
+$env.XDG_STATE_HOME = $nu.home-dir | path join .local state
 
 # Configuration Environment Variable
 $env.GIT_CONFIG_GLOBAL = $env.XDG_CONFIG_HOME | path join git .gitconfig
@@ -27,24 +27,24 @@ $env.EDITOR = "micro"
 $env.BROWSER = "brave"
 
 # Cache Environment Variable
-$env.UV_PYTHON_INSTALL_DIR = $nu.home-path | path join .local py
+$env.UV_PYTHON_INSTALL_DIR = $nu.home-dir | path join .local py
 $env.UV_CACHE_DIR = $env.XDG_CACHE_HOME | path join uv
 $env.UV_TOOL_DIR = $env.XDG_DATA_HOME | path join uv tools
 $env.UV_TOOL_BIN_DIR = $env.XDG_BIN_HOME
-$env.BUN_INSTALL = $nu.home-path | path join .local
-$env.BUN_INSTALL_DIR_CACHE = $nu.home-path | path join .local cache
+$env.BUN_INSTALL = $nu.home-dir | path join .local
+$env.BUN_INSTALL_DIR_CACHE = $nu.home-dir | path join .local cache
 
 # History Environment Variable
-$env.HISTORY_DIR = $nu.home-path | path join .local history
+$env.HISTORY_DIR = $nu.home-dir | path join .local history
 $env.NODE_REPL_HISTORY = $env.HISTORY_DIR | path join history_node
 $env.LESSHISTFILE = $env.HISTORY_DIR | path join history_less
 $env.PYTHON_HISTORY = $env.HISTORY_DIR | path join history_python
 $env._ZO_DATA_DIR = $env.HISTORY_DIR | path join zoxide
 
 # Binary Directory Variable
-$env.NIMBLE_BIN = $nu.home-path | path join .nimble bin
-$env.CARGO_BIN = $nu.home-path | path join .cargo bin
-$env.ZIG_BIN = $nu.home-path | path join .zig
+$env.NIMBLE_BIN = $nu.home-dir | path join .nimble bin
+$env.CARGO_BIN = $nu.home-dir | path join .cargo bin
+$env.ZIG_BIN = $nu.home-dir | path join .zig
 
 # Add directory to PATH
 path add $env.XDG_BIN_HOME
