@@ -209,14 +209,6 @@ binds {
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
 
-    // Finer width adjustments.
-    // This command can also:
-    // * set width in pixels: "1000"
-    // * adjust width in pixels: "-5" or "+5"
-    // * set width as a percentage of screen width: "25%"
-    // * adjust width as a percentage of screen width: "-10%" or "+10%"
-    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
-    // set-column-width "100" will make the column occupy 200 physical screen pixels.
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
 
@@ -269,6 +261,16 @@ window-rule {
     match title="File Operation Progress"
     match app-id="Thunar"
     open-floating true
+}
+
+window-rule {
+    match app-id="FreeCAD"
+    default-column-width { proportion 1.0; }
+}
+
+window-rule {
+    match app-id="code"
+    default-column-width { proportion 1.0; }
 }
 
 include "dms/binds.kdl"
