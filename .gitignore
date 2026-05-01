@@ -140,3 +140,5 @@ qt5ct/qt5ct.conf
 gh/hosts.yml
 Google/AndroidStudio2025.2.3
 .android/avd
+FreeCAD/
+bleachbit/bleachbit.ini
