@@ -64,5 +64,5 @@ alias vv = uv run
 alias rr = rm --recursive
 alias de = distrobox enter # enter distrobox container
 
-source zoxide.nu
-source atuin.nu
+# source zoxide.nu
+# source atuin.nu
