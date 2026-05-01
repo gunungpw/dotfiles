@@ -13,7 +13,8 @@ set -gx XDG_STATE_HOME "$HOME/.local/state"
 
 # Configuration Environment Variable
 set -gx GIT_CONFIG_GLOBAL "$XDG_CONFIG_HOME/git/.gitconfig"
-set -gx EDITOR "micro"
+set -gx EDITOR "nano"
+set -gx SYSTEMD_EDITOR "nano"
 set -gx BROWSER "brave"
 set -gx TERM "kitty"
 
