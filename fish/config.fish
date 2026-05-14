@@ -62,7 +62,6 @@ if type -q sudo-rs
     alias sudo sudo-rs
 end
 
-source "$XDG_CONFIG_HOME/fish/atuin.fish"
 source "$XDG_CONFIG_HOME/fish/zoxide.fish"
 
 # bun
