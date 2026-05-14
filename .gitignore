@@ -30,7 +30,7 @@ gtk-4.0
 libaccounts-glib
 session
 xsettingsd
-BraveSoftware/Brave-Browser
+BraveSoftware/
 Code
 KDE
 fontconfig
@@ -141,4 +141,3 @@ gh/hosts.yml
 Google/AndroidStudio2025.2.3
 .android/avd
 FreeCAD/
-bleachbit/bleachbit.ini
