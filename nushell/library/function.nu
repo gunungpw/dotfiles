@@ -26,7 +26,7 @@ export def get_hostname [] {
 }
 
 export def get_username [] {
-    $env.USER
+    if ($nu.os-info.family == "windows") { $env.USERNAME } else { $env.USER }
 }
 
 # Yazi shortcut to exit and CWD
