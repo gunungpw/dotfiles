@@ -62,8 +62,6 @@ if type -q sudo-rs
     alias sudo sudo-rs
 end
 
-source "$XDG_CONFIG_HOME/fish/zoxide.fish"
-
 # bun
 set -gx BUN_INSTALL "$HOME/.local/share/reflex/bun"
 set -gx fish_user_paths "$BUN_INSTALL/bin" $fish_user_paths
