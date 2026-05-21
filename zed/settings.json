@@ -7,6 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "disable_ai": true,
+  "title_bar": {
+    "show_sign_in": false
+  },
   "diff_view_style": "split",
   "project_panel": {
     "dock": "left"
@@ -18,6 +22,7 @@
     "dock": "left"
   },
   "agent": {
+    "enable_feedback": false,
     "dock": "right",
     "favorite_models": [],
     "model_parameters": []
