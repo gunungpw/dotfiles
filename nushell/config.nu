@@ -63,3 +63,51 @@ alias vl = overlay use .venv/bin/activate.nu # linux activate virtual environmen
 alias vv = uv run
 alias rr = rm --recursive
 alias de = distrobox enter # enter distrobox container
+
+def zip-flat [] {
+    print $"Zipping Folder:"
+    ls -d */ | get name | each { |folder|
+        let zip_file = $"($folder).zip"
+        print $"($zip_file)"
+        cd $folder
+        7z a -tzip -bsp0 -bso0 $"../($zip_file)" *
+        cd ..
+    }
+    print "Done!"
+}
+
+def 7zip-flat [] {
+    print "Zipping Folder:"
+    ls -d */ | get name | each { |folder|
+        let zip_file = $"($folder).7z"
+        print $"($zip_file)"
+        cd $folder
+        7z a -bsp0 -bso0 $"../($zip_file)" *
+        cd ..
+    }
+    print "Done!"
+}
+
+def create-safe-folders [
+    folders: list<string>   # The list of folder names you want to create
+    --dry-run (-n)          # If present, only show what would be created (no actual mkdir)
+] {
+    let invalid_pattern = '[<>:"/\\|?*]'
+
+    for folder in $folders {
+        let safe_name = ($folder | str trim | str replace -a $invalid_pattern '_')
+
+        # Skip empty names after sanitizing
+        if ($safe_name | is-empty) {
+            print -e $"Skipping empty folder name from: ($folder)"
+            continue
+        }
+
+        if $dry_run {
+            print $"Would create: ./($safe_name)"
+        } else {
+            mkdir $safe_name
+            print $"Created:     ./($safe_name)"
+        }
+    }
+}
