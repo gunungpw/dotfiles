@@ -111,3 +111,8 @@ def create-safe-folders [
         }
     }
 }
+
+def mkf [] { create-safe-folders $in }
+
+# list all zip files to markdown
+def lzip [] { ls *.zip | get name | to md | lines | each { |li| | str replace .zip ""} | to md }
