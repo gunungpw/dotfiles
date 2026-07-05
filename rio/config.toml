@@ -1,0 +1,8 @@
+[window]
+height = 1250
+width = 1250
+
+[fonts]
+size = 16
+
+confirm-before-quit = false
