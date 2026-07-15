@@ -6,3 +6,6 @@ width = 1250
 size = 16
 
 confirm-before-quit = false
+
+[navigation]
+hide-if-single = false
