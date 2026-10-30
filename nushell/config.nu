@@ -70,7 +70,7 @@ def zip-flat [] {
         let zip_file = $"($folder).zip"
         print $"($zip_file)"
         cd $folder
-        7z a -tzip -bsp0 -bso0 $"../($zip_file)" *
+        NanaZipC a -tzip -bsp0 -bso0 $"../($zip_file)" *
         cd ..
     }
     print "Done!"
@@ -82,7 +82,7 @@ def 7zip-flat [] {
         let zip_file = $"($folder).7z"
         print $"($zip_file)"
         cd $folder
-        7z a -bsp0 -bso0 $"../($zip_file)" *
+        NanaZipC a -bsp0 -bso0 $"../($zip_file)" *
         cd ..
     }
     print "Done!"
