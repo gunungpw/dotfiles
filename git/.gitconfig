@@ -2,9 +2,9 @@
 	name = gunungpw
 	email = gunungpambudiw@gmail.com
 [core]
-	editor = hx
+	editor = zed
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !gh auth git-credential
 [alias]
 	st = status
